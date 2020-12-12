@@ -16,22 +16,22 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
   - ✅ Hypothesis Mind Map and Hypothesis Creation
   - ✅ Feature Engineering
 - ✅ Step 3: Filtering Variables
-    - Row Filtering
-    - Columns Selection
+      Row Filtering
+      Columns Selection
 - :white_large_square: Step 4: Exploratory Data Analysis
   - :white_large_square: Univariate Analysis (numerical, categorical and response analysis)
-  - :white_square: Bivariate Analysis (hypothesis validation)
-  - :white_square: Multivariate Analysis
+  - :white_large_square: Bivariate Analysis (hypothesis validation)
+  - :white_large_square: Multivariate Analysis
 - :white_square: Step 5: Data Preparation
-  - :white_square:  Normalization
-  - :white_square: Scaling
-  - :white_square: Transforming
-- :white_square: Step 6: Feature Selection
-  - :white_square: Performing Boruta
-  - :white_square: Manual Selection
-- :white_square: Step 7: Machine Learning Modeling
-- :white_square: Step 8: Hyperparameter Fine Tuning
-- :white_square: Step 9: Translating and Interpreting Error
-- :white_square: Step 10: Model Deploying
+  - :white_large_square:  Normalization
+  - :white_large_square: Scaling
+  - :white_large_square: Transforming
+- :white_large_square: Step 6: Feature Selection
+  - :white_large_square: Performing Boruta
+  - :white_large_square: Manual Selection
+- :white_large_square: Step 7: Machine Learning Modeling
+- :white_large_square: Step 8: Hyperparameter Fine Tuning
+- :white_large_square: Step 9: Translating and Interpreting Error
+- :white_large_square: Step 10: Model Deploying
 
 ---
