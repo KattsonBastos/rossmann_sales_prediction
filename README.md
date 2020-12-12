@@ -9,29 +9,29 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
 
 ## 📋   Project Steps
 
-- ✅ Step 1: Data Description
+- ✅ **Step 1: Data Description**
   - ✅ Data Dimension and Type, Missing Values
   - ✅ Descriptive Statistics
-- ✅ Step 2: Feature Engineering
+- ✅ **Step 2: Feature Engineering**
   - ✅ Hypothesis Mind Map and Hypothesis Creation
   - ✅ Feature Engineering
-- ✅ Step 3: Filtering Variables
+- ✅ **Step 3: Filtering Variables**
     - Row Filtering
     - Columns Selection
-- :white_large_square: Step 4: Exploratory Data Analysis
+- :white_large_square: **Step 4: Exploratory Data Analysis**
   - :white_large_square: Univariate Analysis (numerical, categorical and response analysis)
   - :white_large_square: Bivariate Analysis (hypothesis validation)
   - :white_large_square: Multivariate Analysis
-- :white_large_square: Step 5: Data Preparation
+- :white_large_square: **Step 5: Data Preparation**
   - :white_large_square:  Normalization
   - :white_large_square: Scaling
   - :white_large_square: Transforming
-- :white_large_square: Step 6: Feature Selection
+- :white_large_square: **Step 6: Feature Selection**
   - :white_large_square: Performing Boruta
   - :white_large_square: Manual Selection
-- :white_large_square: Step 7: Machine Learning Modeling
-- :white_large_square: Step 8: Hyperparameter Fine Tuning
-- :white_large_square: Step 9: Translating and Interpreting Error
-- :white_large_square: Step 10: Model Deploying
+- :white_large_square: **Step 7: Machine Learning Modeling**
+- :white_large_square: **Step 8: Hyperparameter Fine Tuning**
+- :white_large_square: **Step 9: Translating and Interpreting Error**
+- :white_large_square: **Step 10: Model Deployment**
 
 ---
