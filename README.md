@@ -18,8 +18,8 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
 - ✅ Step 3: Filtering Variables
     - Row Filtering
     - Columns Selection
-- [] Step 4: Exploratory Data Analysis
-  - :white_square: Univariate Analysis (numerical, categorical and response analysis)
+- :white_large_square: Step 4: Exploratory Data Analysis
+  - :white_large_square: Univariate Analysis (numerical, categorical and response analysis)
   - :white_square: Bivariate Analysis (hypothesis validation)
   - :white_square: Multivariate Analysis
 - :white_square: Step 5: Data Preparation
