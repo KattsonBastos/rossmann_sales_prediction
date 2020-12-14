@@ -22,10 +22,10 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
   - ✅ Univariate Analysis (numerical, categorical and response analysis)
   - ✅ Bivariate Analysis (hypothesis validation)
   - ✅ Multivariate Analysis
-- :white_large_square: **Step 5: Data Preparation**
-  - :white_large_square:  Normalization
-  - :white_large_square: Scaling
-  - :white_large_square: Transforming
+- ✅ **Step 5: Data Preparation**
+  - ✅ Normalization
+  - ✅ Scaling
+  - ✅ Transforming
 - :white_large_square: **Step 6: Feature Selection**
   - :white_large_square: Performing Boruta
   - :white_large_square: Manual Selection
