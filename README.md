@@ -6,6 +6,7 @@ This repository contains files from the project I'm building <a href="https://ww
 
 Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossmann Store Sales | Kaggle</a>
 
+---
 
 ## 📋   Project Steps
 
@@ -26,10 +27,17 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
   - ✅ Normalization
   - ✅ Scaling
   - ✅ Transforming
-- :white_large_square: **Step 6: Feature Selection**
-  - :white_large_square: Performing Boruta
-  - :white_large_square: Manual Selection
-- :white_large_square: **Step 7: Machine Learning Modeling**
+- ✅ **Step 6: Feature Selection**
+  - ✅ Performing Boruta
+  - ✅ Manual Selection
+- ✅ **Step 7: Machine Learning Modeling**
+  - ✅ Average Model
+  - ✅ Linear Regression
+  - ✅ Regularized Linear Regression - Lasso
+  - ✅ Random Forest Regressor
+  - ✅ XGBoost Regressor
+  - ✅ Time Series Cross Validation for all models
+  - ✅ Model Selection
 - :white_large_square: **Step 8: Hyperparameter Fine Tuning**
 - :white_large_square: **Step 9: Translating and Interpreting Error**
 - :white_large_square: **Step 10: Model Deployment**
