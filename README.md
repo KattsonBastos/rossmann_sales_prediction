@@ -21,6 +21,7 @@ Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossma
     - <a href="#s2">Step 2: Hypothesis Creation and Feature Engineering</a>
     - <a href="#s3">Step 3: Filtering Variables and Rows</a>
     - <a href="#s4">Step 4 Exploratory Data Analysis (EDA)</a>
+            - <a href="#hps">Hypothesis Validation Summary</a>
 - <a href="#p3">Phase 3: Data Preparation</a>
     - <a href="#s5">Step 5: Data Preparation</a>
     - <a href="#s6">Step 6: Feature Selection</a>
@@ -322,50 +323,135 @@ It's divided into Response, Numerical, and Categorical analysis.
 ![](img/edacateg.PNG)
 
 #### Bivariate Analysis
-- **H1: ** 
+In this task, those hypothesis was validated one by one. As said before, what we basically did was:
+- validate the hypothesis;
+- conclude if the feature is important to use in the model;
+- get some business experience.
+
+- **H1: Stores with a larger assortment should sell more**
+This hypothesis is about the variable `assortment`. We have no much information about this feature, only that it has three classes: basic, extended and extra. The counting for each one is as follows:
+- basic: 444875
+- extended: 391254
+- extra: 8209
+since there's a difference in quantity between all three classes, we used the average as a comparison (not the sum). Furthermore, I'll concentate in 'basic' and 'extended' which are two extremes of the feature.
+
 ![](img/h1.PNG)
 ![](img/hh1.PNG)
 
-- **H2: ** 
+**Conclusion**: **FALSE.**
+On average, sales seem to increase as the assortment is bigger. Also, analysing over the weeks, we can see that 'extended' and 'basic' moves quite similar.
+
+- **H2: Stores with closer competitors should sell less**
+This hypothesis is about the variable `competition_distance`. It is the distance in meters to the nearest competitor store.
+
 ![](img/h2.PNG)
 
-- **H3: ** 
+**Conclusion**: **FALSE.**
+stores with closer competitors sell more. Competition distance and sales have a negative non linear correlaiton, which means that as the distance increases, sales decrease. That correlation (-0.23) is good enough to consider the variable important to the model.
+
+- **H3: Stores with longer competitors should sell more** 
+Here it is analyzed the `competition_time_month`. 
+
 ![](img/h3.PNG)
 
-- **H4: ** 
+**Conclusion**: **FALSE.**
+the more recent the competition, the higher the sale. The feature is relevant to the model because its correlation with the target is not too close to zero.
+
+- **H4: Stores with active promotions for longer should sell more** 
+To validate this hypothesis it was used the column `promo_time_week`. It measure how long, in terms of weeks, a promotion is active.
+
 ![](img/h4.PNG)
 
-- **<s>H5:</s>** 
-- **H6: ** 
+**Conclusion**: **FALSE.**
+stores with active promotions for longer sell less because sales starts to decrease after a period of time. According to the correlation, there's no evidence of a strong relationship between this feature and the target
+
+- **<s>H5: Stores with more promotion days should sell more </s>**
+Our team decided to validatethis hypothesis in the second CRISP cycle.
+
+- **H6: Stores with more consecutive promotions should sell more**
+This hypothesis analyses `promo` and `promo2` in term of weeks of the year (`year_week`).
+
 ![](img/h6.PNG)
 
-- **H7: ** 
+**Conclusion**: **FALSE.**
+Stores with more consecutive promotions sell less. Since both levels moves quite similar, there's no such an evidence of a strong relationship between this feature and the target.
+
+- **H7: Stores open during the Christmas holiday should sell more**
+Here it's analyzed the `state_holiday`. 
 ![](img/h7.PNG)
 
-- **H8: ** 
+**Conclusion**: **FALSE.**
+On average, stores open during christmas have one of the highest sales amount, but easter holiday has a higher mean. In fact, stores sell more during holidays than during regular days. So, this feature can be considered important to the analysis.
+
+- **H8: Stores should be selling more over the years**
+Here it is analyzed the `year` column.
+
 ![](img/h8.PNG)
 
-- **H9: ** 
+**Conclusion**: **TRUE.**
+On average, sales are increasing over the year. Since the correlation is very high, this feature is important to the model.
+
+- **H9: Stores should sell more in the second half of the year**
+Since 2015 is incomplete, we used the mean instead of the sum to compare because the lack of data for the second half of the year could give us misinformation.
+
 ![](img/h9.PNG)
 
-- **H10: ** 
+**Conclusion**: **FALSE.**
+Stores sell less in the second half of the year. The feature and the target have a strong negative correlation and it can be considered important to the model.
+
+- **H10: Stores should sell more after the 10th of each month** 
 ![](img/h10.PNG)
 
-- **H11: ** 
+**Conclusion**: **FALSE.**
+On average, there's no such a strong evidence that stores sell more after the 10th day of each month. In fact, the mean for this class is slightly smaller than for 'before_10_days'. The correlation between the feature and the target shows a relevant relationship. thus, It can be considered important to the model.
+
+- **H11: Stores should sell less on weekends**
+Since there was less sundays in the dataset, we used the mean to compare the sale by days.
+
 ![](img/h11.PNG)
 
-- **H12: ** 
+**Conclusion**: **FALSE.**
+on average, I can't say that sales is less on weekends. The correlation is strong enough to be considered in the model.
+
+- **H12: Stores should sell less during school holidays** 
 ![](img/h12.PNG)
 
+**Conclusion**: **FALSE.**
+there's no such an evidence that stores sell less during school holidays. On average, it's almost the same.
 
+- **Hypothesis Validation Summary and Feature Relevance** <p id="hps"></p>
+
+To facilitate the visualization, we present the following validation summary and the relevance of the feature.
+
+| Hypothesis | Conclusion | Relevance | 
+| ----------- | ----------- | ----------- |
+H1 | False | Medium
+H2 | False | Medium
+H3 | False | Medium
+H4 | False | Low
+H5 | - | -
+H6 | False | Low
+H7 | False | Medium
+H8 | True | High
+H9 | False | Medium
+H10 | False | Medium
+H11 | False | Medium
+H12 | False | Low
 
 #### Multivariate Analysis
 
+- **Numerical Variables**
+_to do.._
+
+
+- **Categorical Variables**
+For categorical attributes we used Cramér's V test. Basically, it is a measure of association between two categorical variables and it returns a value between 0 and 1. Its formula is the following:
+
+$$V = \sqrt{\frac{\chi^2/n}{min(k-1,r-1)}}$$
 
 ![](img/multicateg.PNG)
 
-
-
-
+**Conclusions:** we highlight the relation between `store_type` and `assortment` which is moderate. even though it is high than the others, it is not strong enough to consider dropping one of them from the dataset.
 
 [back to contents](#contents)
+
