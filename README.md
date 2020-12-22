@@ -4,12 +4,6 @@
 
 ⚠️ I'm still building this ReadME ⚠️
 
-You are provided with historical sales data for 1,115 Rossmann stores.
-
-This repository contains files from the project I'm building <a href="https://www.hotmart.com/product/data-science-em-producao/Y24207977W">for this course</a>.
-
-Data source: <a href="https://www.kaggle.com/c/rossmann-store-sales/data">Rossmann Store Sales | Kaggle</a>
-
 ---
 ## Contents <p id="contents"></p>
 - <a href="#intro">A Brief Introduction to the ROSSMANN Company</a>
@@ -308,7 +302,7 @@ It's divided into Response, Numerical, and Categorical analysis.
 ![](img/response.PNG)
 ![](img/responseqq.PNG)
 
-- **Numerical Variables:** all variables seem not to be normal. Some Highlights: 
+- **Numerical Variables:** all variables seem not to be normal. Some Highlights: <p id="numvar"></p>
         - `day_of_week`: sales are lower on Sundays;
         - `competition_distance`: the are more stores with competitors close than far;
         - `promo2_since_year`: there are more stores that joined consecutive promotion sales in 2013.
@@ -324,134 +318,253 @@ It's divided into Response, Numerical, and Categorical analysis.
 
 #### Bivariate Analysis
 In this task, those hypothesis was validated one by one. As said before, what we basically did was:
-- validate the hypothesis;
-- conclude if the feature is important to use in the model;
-- get some business experience.
+    - validate the hypothesis;
+    - conclude if the feature is important to use in the model;
+    - get some business experience.
 
-- **H1: Stores with a larger assortment should sell more**
+- **H1: Stores with a larger assortment should sell more**<br>
 This hypothesis is about the variable `assortment`. We have no much information about this feature, only that it has three classes: basic, extended and extra. The counting for each one is as follows:
-- basic: 444875
-- extended: 391254
-- extra: 8209
+    - basic: 444875
+    - extended: 391254
+    - extra: 8209
 since there's a difference in quantity between all three classes, we used the average as a comparison (not the sum). Furthermore, I'll concentate in 'basic' and 'extended' which are two extremes of the feature.
 
 ![](img/h1.PNG)
 ![](img/hh1.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 On average, sales seem to increase as the assortment is bigger. Also, analysing over the weeks, we can see that 'extended' and 'basic' moves quite similar.
 
-- **H2: Stores with closer competitors should sell less**
+- **H2: Stores with closer competitors should sell less**<br>
 This hypothesis is about the variable `competition_distance`. It is the distance in meters to the nearest competitor store.
 
 ![](img/h2.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 stores with closer competitors sell more. Competition distance and sales have a negative non linear correlaiton, which means that as the distance increases, sales decrease. That correlation (-0.23) is good enough to consider the variable important to the model.
 
-- **H3: Stores with longer competitors should sell more** 
+- **H3: Stores with longer competitors should sell more** <br>
 Here it is analyzed the `competition_time_month`. 
 
 ![](img/h3.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 the more recent the competition, the higher the sale. The feature is relevant to the model because its correlation with the target is not too close to zero.
 
-- **H4: Stores with active promotions for longer should sell more** 
+- **H4: Stores with active promotions for longer should sell more** <br>
 To validate this hypothesis it was used the column `promo_time_week`. It measure how long, in terms of weeks, a promotion is active.
 
 ![](img/h4.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 stores with active promotions for longer sell less because sales starts to decrease after a period of time. According to the correlation, there's no evidence of a strong relationship between this feature and the target
 
-- **<s>H5: Stores with more promotion days should sell more </s>**
+- **<s>H5: Stores with more promotion days should sell more </s>** <br>
 Our team decided to validatethis hypothesis in the second CRISP cycle.
 
-- **H6: Stores with more consecutive promotions should sell more**
+- **H6: Stores with more consecutive promotions should sell more**<br>
 This hypothesis analyses `promo` and `promo2` in term of weeks of the year (`year_week`).
 
 ![](img/h6.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.** <br>
 Stores with more consecutive promotions sell less. Since both levels moves quite similar, there's no such an evidence of a strong relationship between this feature and the target.
 
-- **H7: Stores open during the Christmas holiday should sell more**
+- **H7: Stores open during the Christmas holiday should sell more**<br>
 Here it's analyzed the `state_holiday`. 
 ![](img/h7.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 On average, stores open during christmas have one of the highest sales amount, but easter holiday has a higher mean. In fact, stores sell more during holidays than during regular days. So, this feature can be considered important to the analysis.
 
-- **H8: Stores should be selling more over the years**
+- **H8: Stores should be selling more over the years**<br>
 Here it is analyzed the `year` column.
 
 ![](img/h8.PNG)
 
-**Conclusion**: **TRUE.**
+**Conclusion**: **TRUE.**<br>
 On average, sales are increasing over the year. Since the correlation is very high, this feature is important to the model.
 
-- **H9: Stores should sell more in the second half of the year**
+- **H9: Stores should sell more in the second half of the year**<br>
 Since 2015 is incomplete, we used the mean instead of the sum to compare because the lack of data for the second half of the year could give us misinformation.
 
 ![](img/h9.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 Stores sell less in the second half of the year. The feature and the target have a strong negative correlation and it can be considered important to the model.
 
 - **H10: Stores should sell more after the 10th of each month** 
 ![](img/h10.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 On average, there's no such a strong evidence that stores sell more after the 10th day of each month. In fact, the mean for this class is slightly smaller than for 'before_10_days'. The correlation between the feature and the target shows a relevant relationship. thus, It can be considered important to the model.
 
-- **H11: Stores should sell less on weekends**
+- **H11: Stores should sell less on weekends**<br>
 Since there was less sundays in the dataset, we used the mean to compare the sale by days.
 
 ![](img/h11.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 on average, I can't say that sales is less on weekends. The correlation is strong enough to be considered in the model.
 
-- **H12: Stores should sell less during school holidays** 
+- **H12: Stores should sell less during school holidays** <br>
 ![](img/h12.PNG)
 
-**Conclusion**: **FALSE.**
+**Conclusion**: **FALSE.**<br>
 there's no such an evidence that stores sell less during school holidays. On average, it's almost the same.
 
 - **Hypothesis Validation Summary and Feature Relevance** <p id="hps"></p>
 
 To facilitate the visualization, we present the following validation summary and the relevance of the feature.
 
-| Hypothesis | Conclusion | Relevance | 
-| ----------- | ----------- | ----------- |
-H1 | False | Medium
-H2 | False | Medium
-H3 | False | Medium
-H4 | False | Low
-H5 | - | -
-H6 | False | Low
-H7 | False | Medium
-H8 | True | High
-H9 | False | Medium
-H10 | False | Medium
-H11 | False | Medium
-H12 | False | Low
+| Hypothesis | Conclusion | Feature | Relevance | 
+| ----------- | ----------- | ----------- | ----------- |
+| H1 | False |`assortment` | Medium |
+| H2 | False | `competition_distance` | Medium |
+| H3 | False | `competition_time_month` | Medium |
+| H4 | False | `promo_time_week` | Low |
+| H5 | - | - | - |
+| H6 | False | `promo`, `promo2` | Low |
+| H7 | False | `state_holiday` | Medium |
+| H8 | True | `year` | High |
+| H9 | False | `month` | Medium |
+| H10 | False | `day` | Medium |
+| H11 | False | `day_of_week` | Medium |
+| H12 | False | `School_holiday` | Low |
 
 #### Multivariate Analysis
 
-- **Numerical Variables**
-_to do.._
+- **Numerical Variables**<br>
+For numerical attributes we used the Pearson's correlation coefficient and presented in a heatmap.
 
+![](img/multinumeric.PNG)
 
-- **Categorical Variables**
-For categorical attributes we used Cramér's V test. Basically, it is a measure of association between two categorical variables and it returns a value between 0 and 1. Its formula is the following:
+**Conclusions:**<br>
+- Correlation with the target:
+    - except by `promo`, we can't see a strong correlation between the features and the target.
+- Multicollinearity (strong relationship between features):
+    - in general, features derived from other or time related feature have a higher correlation value, like `month` and `week_of_year`. 
 
-$$V = \sqrt{\frac{\chi^2/n}{min(k-1,r-1)}}$$
+- **Categorical Variables**<br>
+For categorical attributes we used Cramér's V test. Basically, it is a measure of association between two categorical variables and it returns a value between 0 and 1. The closer to 1, the strongest the relationship.
+
+To apply it in python we had to create a function, available in subsection 0.1 in the [Jupyter Notebook](https://github.com/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb).
 
 ![](img/multicateg.PNG)
 
 **Conclusions:** we highlight the relation between `store_type` and `assortment` which is moderate. even though it is high than the others, it is not strong enough to consider dropping one of them from the dataset.
 
 [back to contents](#contents)
+
+---
+## Phase 3: Data Preparation <p id="p3"></p>
+In this phase the data was prepared to the modeling. It is divided into two steps:
+- Data Preparation: transformations, features scaling, normalizations;
+- Feature Selection: the use of Boruta and the knowledge gained in EDA section to properly select features.
+
+### Step 5: Data Preparation <p id="s5"></p>
+The motivation behind data preparation: the learning process of the Machine Learning algorithms is facilitated if the data is numeric and if they're in the same scale.
+
+#### Normalization
+Since Normalization is appropriate to normal distributions and, based on the numerical variable distributions shown <a href="#numvar">here in EDA</a>, we decided to don't apply the normalization, since there's no evidence that they have a normal distribution.
+
+#### Rescaling
+Here we used Min-Max Scaler to variables without outliers and Robustscaler to variables that contain them.
+- Min-Max Scaler: it was used for `year`
+- RobustScaler: it was used for `competition_distance`, `competition_time_month`, and `promo_time_week`.
+
+#### Transformation
+- **Encoding**: it was used _one-hot encoding_ to the variable `state_holiday`; _Label Encoding_ to `store_type` and _ordinal encoding_ to `assortment´.
+
+- **Response Variable Transformation:** Since ML algorithms need the response to be normal (or close to that), we performed a log transformation on the target (`sales`) variable.
+
+- **cyclic transformation (for time-related variables):** since `day_of_week`, `month`, `day`, and `week_of_year` have a cyclical nature (for each period, they repeat their values, i.g. for each week, `day` goes from 1 to 7), we created new variables containing the sin and cossin for all of those variables to represent that cyclical nature. So, the following columns was created: `day_of_week_sin`, `day_of_week_cos`, `month_sin`, `month_cos`, `day_sin`, `day_cos`, `week_of_year_sin`, and `week_of_year_cos`
+
+### Step 6: Feature Selection <p id="s6"></p>
+The focus here is to keep that variables that best explains the target variable. Here we followed the Occam’s Razor principle that a more simple explanations ( or models ) of the problem should be choosen instead of a complex one. So, a model containing only the important features can better generalize (better make predictions).
+
+To help us decided what features to select, we performed Boruta on the dataset. Boruta is a wrapper method of feature selection, that is, a method that uses a Machine Learning algorithm to determine the best features. For more about this feature selection algorithms, we recommend [this post](https://towardsdatascience.com/boruta-explained-the-way-i-wish-someone-explained-it-to-me-4489d70e154a).
+
+| Variables Selected |
+| ----------- | 
+| `store` |
+| `promo` |
+| `store_type` |
+| `assortment` |
+| `competition_distance` |
+| `competition_open_since_month` |
+| `competition_open_since_year` |
+| `promo2` |
+| `promo2_since_week` |
+| `promo2_since_year` |
+| `competition_time_month` |
+| `promo_time_week` |
+| `day_of_week_sin` |
+| `day_of_week_cos` |
+| `month_sin` |
+| `month_cos` |
+| `day_sin` |
+| `day_cos` |
+| `week_of_year_cos` | 
+
+| Variables not Selected |
+| ----------- | 
+| `is_promo` |
+| `month_sin` |
+| `school_holiday` |
+| `state_holiday_christmas` |
+| `state_holiday_easter_holiday` |
+| `state_holiday_holiday_holiday` |
+| `state_holiday_regular_holiday` |
+| `week_of_year_sin` |
+| `year` |
+
+Now we had to analyze both Boruta's result and the feature relevance from EDA section. 
+
+Thus, the features manually selected are in the followgin final list:
+
+| Variables Selected |
+| ----------- | 
+| `store` |
+| `promo` |
+| `store_type` |
+| `assortment` |
+| `competition_distance` |
+| `competition_open_since_month` |
+| `competition_open_since_year` |
+| `promo2` |
+| `promo2_since_week` |
+| `promo2_since_year` |
+| `competition_time_month` |
+| `promo_time_week` |
+| `day_of_week_sin` |
+| `day_of_week_cos` |
+| `month_sin` |
+| `month_cos` |
+| `day_sin` |
+| `day_cos` |
+| `week_of_year_sin` |
+| `week_of_year_cos` |
+
+**Final list explanation:**
+- `promo`and `promo2` was classified with a low relevance in EDA, but we decided to keep them in the dataset and explore better in the next CRISP cycle; 
+- even though Boruta didn't select `month_sin`, also decided to keep in the dataset since the variable `month` has a medium relevance to the target;
+- `year` was identified as high relevant to the target in the EDA step. However, since Boruta rejected it and the 2015 year is incomplete, we decided to exclude it from the dataset;
+- We concluded in EDA that `school_holiday` has a low relevance to the target. Since it was also rejected by Boruta, it was excluded from the dataset;
+- Boruta rejected `state_holiday`'s encodings and it was classified as a medium relevance to the model in EDA. We decided to exclude its encodings from the dataset and in the next cycle we'l work better of them.
+- Boruta also rejected `week_of_year_sin`, but we kept them in the model.
+
+[back to contents](#contents)
+
+---
+## Phase 4: Modeling <p id="p4"></p>
+
+### Step 7: Machine Learning Modeling <p id="#s7"></p>
+
+### Step 8: Hyperparameter Fine Tuning <p id="#s8"></p>
+
+
+[back to contents](#contents)
+
+---
 
