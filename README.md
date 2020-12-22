@@ -2,6 +2,8 @@
 
 <img src="https://www.rossmann.de/dam/jcr:f83a6bfd-e46c-4063-844e-59ffa529ed80/Buehne_Startseite_Ueber_uns.2017-01-11-08-36-49.jpg" alt="drawing" width="100%"/>
 
+⚠️ I'm still building this ReadME ⚠️
+
 You are provided with historical sales data for 1,115 Rossmann stores.
 
 This repository contains files from the project I'm building <a href="https://www.hotmart.com/product/data-science-em-producao/Y24207977W">for this course</a>.
