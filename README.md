@@ -322,7 +322,7 @@ In this task, those hypothesis was validated one by one. As said before, what we
     - conclude if the feature is important to use in the model;
     - get some business experience.
 
-- **H1: Stores with a larger assortment should sell more**<br>
+##### H1: Stores with a larger assortment should sell more<br>
 This hypothesis is about the variable `assortment`. We have no much information about this feature, only that it has three classes: basic, extended and extra. The counting for each one is as follows:
     - basic: 444875
     - extended: 391254
@@ -335,7 +335,7 @@ since there's a difference in quantity between all three classes, we used the av
 **Conclusion**: **FALSE.**<br>
 On average, sales seem to increase as the assortment is bigger. Also, analysing over the weeks, we can see that 'extended' and 'basic' moves quite similar.
 
-- **H2: Stores with closer competitors should sell less**<br>
+##### H2: Stores with closer competitors should sell less<br>
 This hypothesis is about the variable `competition_distance`. It is the distance in meters to the nearest competitor store.
 
 ![](img/h2.PNG)
@@ -343,7 +343,7 @@ This hypothesis is about the variable `competition_distance`. It is the distance
 **Conclusion**: **FALSE.**<br>
 stores with closer competitors sell more. Competition distance and sales have a negative non linear correlaiton, which means that as the distance increases, sales decrease. That correlation (-0.23) is good enough to consider the variable important to the model.
 
-- **H3: Stores with longer competitors should sell more** <br>
+##### H3: Stores with longer competitors should sell more*<br>
 Here it is analyzed the `competition_time_month`. 
 
 ![](img/h3.PNG)
@@ -351,7 +351,7 @@ Here it is analyzed the `competition_time_month`.
 **Conclusion**: **FALSE.**<br>
 the more recent the competition, the higher the sale. The feature is relevant to the model because its correlation with the target is not too close to zero.
 
-- **H4: Stores with active promotions for longer should sell more** <br>
+##### H4: Stores with active promotions for longer should sell more <br>
 To validate this hypothesis it was used the column `promo_time_week`. It measure how long, in terms of weeks, a promotion is active.
 
 ![](img/h4.PNG)
@@ -359,10 +359,10 @@ To validate this hypothesis it was used the column `promo_time_week`. It measure
 **Conclusion**: **FALSE.**<br>
 stores with active promotions for longer sell less because sales starts to decrease after a period of time. According to the correlation, there's no evidence of a strong relationship between this feature and the target
 
-- **<s>H5: Stores with more promotion days should sell more </s>** <br>
+##### <s>H5: Stores with more promotion days should sell more </s>  <br>
 Our team decided to validatethis hypothesis in the second CRISP cycle.
 
-- **H6: Stores with more consecutive promotions should sell more**<br>
+##### H6: Stores with more consecutive promotions should sell more<br>
 This hypothesis analyses `promo` and `promo2` in term of weeks of the year (`year_week`).
 
 ![](img/h6.PNG)
@@ -370,14 +370,14 @@ This hypothesis analyses `promo` and `promo2` in term of weeks of the year (`yea
 **Conclusion**: **FALSE.** <br>
 Stores with more consecutive promotions sell less. Since both levels moves quite similar, there's no such an evidence of a strong relationship between this feature and the target.
 
-- **H7: Stores open during the Christmas holiday should sell more**<br>
+##### H7: Stores open during the Christmas holiday should sell more<br>
 Here it's analyzed the `state_holiday`. 
 ![](img/h7.PNG)
 
 **Conclusion**: **FALSE.**<br>
 On average, stores open during christmas have one of the highest sales amount, but easter holiday has a higher mean. In fact, stores sell more during holidays than during regular days. So, this feature can be considered important to the analysis.
 
-- **H8: Stores should be selling more over the years**<br>
+##### H8: Stores should be selling more over the years<br>
 Here it is analyzed the `year` column.
 
 ![](img/h8.PNG)
@@ -385,7 +385,7 @@ Here it is analyzed the `year` column.
 **Conclusion**: **TRUE.**<br>
 On average, sales are increasing over the year. Since the correlation is very high, this feature is important to the model.
 
-- **H9: Stores should sell more in the second half of the year**<br>
+##### H9: Stores should sell more in the second half of the year<br>
 Since 2015 is incomplete, we used the mean instead of the sum to compare because the lack of data for the second half of the year could give us misinformation.
 
 ![](img/h9.PNG)
@@ -393,13 +393,14 @@ Since 2015 is incomplete, we used the mean instead of the sum to compare because
 **Conclusion**: **FALSE.**<br>
 Stores sell less in the second half of the year. The feature and the target have a strong negative correlation and it can be considered important to the model.
 
-- **H10: Stores should sell more after the 10th of each month** 
+##### H10: Stores should sell more after the 10th of each month
+
 ![](img/h10.PNG)
 
 **Conclusion**: **FALSE.**<br>
 On average, there's no such a strong evidence that stores sell more after the 10th day of each month. In fact, the mean for this class is slightly smaller than for 'before_10_days'. The correlation between the feature and the target shows a relevant relationship. thus, It can be considered important to the model.
 
-- **H11: Stores should sell less on weekends**<br>
+##### H11: Stores should sell less on weekends<br>
 Since there was less sundays in the dataset, we used the mean to compare the sale by days.
 
 ![](img/h11.PNG)
@@ -407,7 +408,7 @@ Since there was less sundays in the dataset, we used the mean to compare the sal
 **Conclusion**: **FALSE.**<br>
 on average, I can't say that sales is less on weekends. The correlation is strong enough to be considered in the model.
 
-- **H12: Stores should sell less during school holidays** <br>
+##### H12: Stores should sell less during school holidays<br>
 ![](img/h12.PNG)
 
 **Conclusion**: **FALSE.**<br>
@@ -434,10 +435,10 @@ To facilitate the visualization, we present the following validation summary and
 
 #### Multivariate Analysis
 
-- **Numerical Variables**<br>
+##### Numerical Variables<br>
 For numerical attributes we used the Pearson's correlation coefficient and presented in a heatmap.
 
-![](img/multinumeric.PNG)
+![](img/multinumeric.png)
 
 **Conclusions:**<br>
 - Correlation with the target:
@@ -445,7 +446,7 @@ For numerical attributes we used the Pearson's correlation coefficient and prese
 - Multicollinearity (strong relationship between features):
     - in general, features derived from other or time related feature have a higher correlation value, like `month` and `week_of_year`. 
 
-- **Categorical Variables**<br>
+##### Categorical Variables<br>
 For categorical attributes we used Cramér's V test. Basically, it is a measure of association between two categorical variables and it returns a value between 0 and 1. The closer to 1, the strongest the relationship.
 
 To apply it in python we had to create a function, available in subsection 0.1 in the [Jupyter Notebook](https://github.com/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb).
@@ -481,7 +482,7 @@ Here we used Min-Max Scaler to variables without outliers and Robustscaler to va
 - **cyclic transformation (for time-related variables):** since `day_of_week`, `month`, `day`, and `week_of_year` have a cyclical nature (for each period, they repeat their values, i.g. for each week, `day` goes from 1 to 7), we created new variables containing the sin and cossin for all of those variables to represent that cyclical nature. So, the following columns was created: `day_of_week_sin`, `day_of_week_cos`, `month_sin`, `month_cos`, `day_sin`, `day_cos`, `week_of_year_sin`, and `week_of_year_cos`
 
 ### Step 6: Feature Selection <p id="s6"></p>
-The focus here is to keep that variables that best explains the target variable. Here we followed the Occam’s Razor principle that a more simple explanations ( or models ) of the problem should be choosen instead of a complex one. So, a model containing only the important features can better generalize (better make predictions).
+The focus here is to keep that variables that best explains the target variable. Here we followed the Occam’s Razor principle that a more simple explanations ( or models ) of the problem should be chosen instead of a complex one. So, a model containing only the important features can better generalize (better make predictions).
 
 To help us decided what features to select, we performed Boruta on the dataset. Boruta is a wrapper method of feature selection, that is, a method that uses a Machine Learning algorithm to determine the best features. For more about this feature selection algorithms, we recommend [this post](https://towardsdatascience.com/boruta-explained-the-way-i-wish-someone-explained-it-to-me-4489d70e154a).
 
@@ -558,13 +559,142 @@ Thus, the features manually selected are in the followgin final list:
 
 ---
 ## Phase 4: Modeling <p id="p4"></p>
+This phase is about learning the data behavior to be able make generalizations in the future.
+It comprises two steps: ML modeling and the parameters tuning.
 
 ### Step 7: Machine Learning Modeling <p id="#s7"></p>
+This step aims to choose the best Machine Learning model. So first we performed 5 models (one average model, two linear and two tree-based models, as explained in the following) and analyzed them its single performance (a 1 fold analysis). However, to better compare them, we created a Cross Validation function for Time Series (available in the section 0.1 in the [Jupyter Notebook](https://github.com/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb)) and consider the data variation across many time periods.
+
+The models used was:
+**1. Average Model:** a simpel model to serve as a baseline to compare if a model is better than the mean;
+**2. Linear Regression:** a statistical technique that fits the best line that minimizes the error in order to predict a depedent continuous variable;
+**3. Regularized Linear Regression - Lasso:** uses shrinkage (where data values are shrunk towards a central point, like the mean), penalizing the features' parameters by adding the absolute value of each parameter in the model.
+**4. Random Forest Regression:** an ensemble model that combines many decision trees to improve prediction.
+**5. XGBoost Regression:** it is also based on decision trees, but uses gradient boosting algorithms.
+
+So, first we fitted the five models. The results is presented bellow.
+
+| Model Name | MAE | MAPE | RMSE | Time to run |
+| ------ | ------ | ------ | ------ | ------ | 
+| Random Forest Regressor | 676.82 | 0.10 | 1005.00 | 44m  | 
+| XGBoost Regressor | 856.03 | 0.12 | 1265.33 | 26m7s | 
+| Average Model | 1354.80 | 0.21 | 1835.14 | 341ms | 
+| Linear Regression | 1867.65 | 0.29 | 2671.33 | 2.51s | 
+| Lasso Regression | 1891.46 | 0.29 | 2742.92 | 2.17s | 
+
+**Conclusions:**:
+1. Both Linear and Lasso Regressions performed worse than the Average Model: their errors are greater than the average ones;
+2. So, the data has a complex behavior (non-linear) and, maybe, Linear Models can't learn its behavior;
+3. Regularized Linear Regression performed even worse than Linear Regerssion Model.
+4. Random Forest Regressor model got the smaller errors. However, it took too long to run (only with 100 estimators)
+
+Then we applied a Time Series Cross Validation, because this method can appropriately consider the data variation across many time periods.
+The goal is to get the mean error and the standard deviation for all folds tested.
+The results is shown above.
+
+| Model Name | MAE CV | MAPE CV | RMSE CV | Time to Run | 
+| ------ | ------ | ------ | ------ | ------ | 
+| Random Forest Regressor | 797.21 +/- 147.56 | 0.11 +/- 0.02 | 1198.69 +/- 269.98 | 2h25m | 
+| XGBoost Regressor | 1028.61 +/- 120.34 | 0.14 +/- 0.01 | 1473.61 +/- 211.25 | 1h39s | 
+| Linear Regression | 1937.11 +/- 79.38 | 0.29 +/- 0.02 | 2745.97 +/- 154.27 | 13.1s | 
+| Lasso | 1978.51 +/- 97.02 | 0.28 +/- 0.01 | 2849.0 +/- 200.1 | 29.3s | 
+
+**Model Selection Conclusions:**
+_Since XGBooster is the second best model (in terms of errors) and it took less time to run, we decided to finish this cycle using it. In the second CRISP cycle we can use another model and improve the model's performance._
 
 ### Step 8: Hyperparameter Fine Tuning <p id="#s8"></p>
+Here we wanted to find the best set of parameters that maximizes the algorithm learning. We made it by applying the Random Search method. The reason we chose it is because it chooses randomly the parameters and then is more fast. The best parameters was as follows:
 
+`param_tuned = {
+    'n_estimators': 3000,
+    'eta': 0.03,
+    'max_depth': 5,
+    'subsample': 0.7,
+    'colsample_bytree': 0.7,
+    'min_child_weight': 3 
+    }`
+
+Thus, the new error was markedly less.
+
+| Model Name | MAE CV | MAPE CV | RMSE CV
+| ------ | ------ | ------ | ------ |
+| XGBoost Regressor | 644.21 | 0.10 | 933.16 |
+
+MAPE improved by 4%, from 14% to 10%.
 
 [back to contents](#contents)
 
 ---
+## Phase 5:  Evaluation <p id="p5"></p>
+Here we evaluated the model results with some appropriate metrics. Besides that, we translated that metrics to the business field.
 
+### Step 9: Translating and Interpreting the the Model Error <p id="#s9"></p>
+This step is about looking at the error and translating it to a business language.
+"Whats the impact to the business? the model is usefull or I still have to improve it more?". These are examples of the questions we wanted to answer in this phase.
+
+This step is divided into two:
+
+**I. Business Performance** 
+The average of all predicted sales for the next six weeks gives us the business performance for each store. 
+It was created the best and the worst scenarios based on the summing and the sibtracting the Mean Absolute Error (MAE) from the predictions.
+
+These scenarios helps the manager better make decisions about the investment on each store and consider the best or the worst scenario.
+
+| Scenario | Values |
+| ------ | ------ |
+| worst_scenario | R$ 286,006,481.05 |
+| predictions | R$ 286,728,640.00 |
+| best_scenario | R$ 287,450,811.39 |
+
+Bellow it is presented the eight stores with the highest Mean Absolute Percentage Error (MAPE).
+
+ | store | predictions | worst_scenario | best_scenario | MAE | MAPE |
+ | ------ | ------ | ------ | ------ | ------ | ------ |
+ | 291 | 292 | 105383.86 | 102061.26 | 108706.46 | 3322.60 | 0.57 |
+ | 908 | 909 | 237669.67 | 230022.56 | 245316.78 | 7647.11 | 0.52 |
+ | 594 | 595 | 344569.97 | 339579.62 | 349560.32 | 4990.35 | 0.35 |
+ | 875 | 876 | 207206.31 | 203287.59 | 211125.03 | 3918.72 | 0.31 |
+ | 721 | 722 | 357292.44 | 355184.43 | 359400.45 | 2108.01 | 0.28 |
+ | 717 | 718 | 201979.52 | 200086.88 | 203872.15 | 1892.64 | 0.26 |
+ | 273 | 274 | 193574.20 | 192156.15 | 194992.26 | 1418.05 | 0.25 |
+ | 781 | 782 | 221717.41 | 220967.12 | 222467.70 | 750.29 | 0.23 |
+
+We can see that there are stores that MAPE corresponds more than 50%, which means that predictions are off by more than 50%.
+Let's look at a scatter plot of MAPE.
+
+![](img/mapeperf.PNG)
+
+The majority of the Mean Absolute Percentage Errors lies between 5% and 20%. Since this is a fictional project, we can't talk to the business team and get their approval to the predictions. So, let's pretend that they approved and keep going.
+
+**II. Machine Learning Performance** 
+This is the last analysis before the model deployment. Here it was analyzed the overall model performance. To do that, we present five graphs. Starting by the fit of the model, the chart bellow shows that the predictions seem to fit well to the real sales.
+
+![](img/mlperfg1.PNG)
+
+The error rate (the ratio between prediction values and observed ones) is presented by the following chart. We can see that it varies in a around 0.15, which can be considered low to this first cycle. We'll try reduce it in the next CRISP cycle.
+
+![](img/mlperfg2.PNG)
+
+It is important to analyze the residuals behaviour when dealing with regression. One of the most important premisesof a good model is the residuals to have a normal-shaped distribution with mean zero nad constant variation. the following chart shows that the residuals seems to be normal.
+
+![](img/mlperfg3.PNG)
+
+This is another chart that helps us analyze the residuals. the expected shape is the residuals concentrated within a 'tube'. Since we can't see any tendency in residuals, it seems to don't have any kind of heteroscedasticity.
+
+![](img/mlperfg4.PNG)
+
+The last task in this step is to check the fit of the residuals to the normal distribution. As shown bellow, it's not a perfect fit, but it's good enough to continue in this cycle and we improve it later.
+
+![](img/mlperfg5.PNG)
+
+[back to contents](#contents)
+
+---
+## Phase 6:  Deployment <p id="p6"></p>
+
+_to do..._
+
+![](img/prodArch.PNG)
+
+
+### Step 10. Deploying Machine Learning Model to Production: a telegram bot
