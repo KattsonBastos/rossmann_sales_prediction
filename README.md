@@ -337,6 +337,7 @@ This hypothesis is about the variable `assortment`. We have no much information 
 - basic: 444875
 - extended: 391254
 - extra: 8209
+
 since there's a difference in quantity between all three classes, we used the average as a comparison (not the sum).
 
 ![](img/h1.PNG)
@@ -433,7 +434,7 @@ To facilitate the visualization, we present the following validation summary and
 
 | Hypothesis | Conclusion | Feature | Relevance | 
 | ----------- | ----------- | ----------- | ----------- |
-| H1 | TRUE |`assortment` | Medium |
+| H1 | True |`assortment` | Medium |
 | H2 | False | `competition_distance` | Medium |
 | H3 | False | `competition_time_month` | Medium |
 | H4 | False | `promo_time_week` | Low |
