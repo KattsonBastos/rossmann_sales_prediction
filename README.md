@@ -2,7 +2,14 @@
 
 <img src="https://www.rossmann.de/dam/jcr:f83a6bfd-e46c-4063-844e-59ffa529ed80/Buehne_Startseite_Ueber_uns.2017-01-11-08-36-49.jpg" alt="drawing" width="100%"/>
 
-⚠️ I'm still building this ReadME ⚠️
+_This project is a sales prediction using data from Rossmann, a Germany drug store chain with more than 4,000 branches across seven European countries. The dataset is available on [Kaggle competition](https://www.kaggle.com/c/rossmann-store-sales/data)._
+
+Here we have an end-to-end solution development, starting with the business demands understanding, then going through visualizations, data preparation, modeling, and ending with the deployment of the model using Heroku cloud service and a bot on Telegram to present the results to the stakeholders.
+
+### Special Mention
+This projects comes from [Meigarom Lopes](https://github.com/Meigarom)'s course [_Data Science em Produção_](https://sejaumdatascientist.com/como-ser-um-data-scientist/). The course goes from business understanding to the product deployment. It basically addresses the ten steps presented bellow on this ReadMe with an extreme focus on the business problem solution and the value creation to a business success.
+
+I'm very grateful to [Alan Maehara](https://github.com/alanmaehara), a teammate from [_Data Science em Produção_](https://sejaumdatascientist.com/como-ser-um-data-scientist/) course, for his [Sales Prediction project](https://github.com/alanmaehara/Sales-Prediction) that helped me a lot building this presentation. Many elements of this ReadMe, like tables, structure, and chart, was inspired on his project. If you'd like to see a very well structured, detailed project, you should take a look at [his project](https://github.com/alanmaehara/Sales-Prediction). Besides that, it's a very good learning (he explains many statistical and data science concepts and techniques)and i'm sure you'll enjoy a his journey.
 
 ---
 ## Contents <p id="contents"></p>
@@ -97,7 +104,7 @@ Evaluate the model results with some appropriate metrics. Besides that, translat
 * **Step 9: Translating and Interpreting the Error**
 
 #### Phase 6: Deployment
-Create the model and evaluate it is not usually the end of the project. The results have to be deliver or presented to the stakeholders. So, that's what this phase is about.
+Create the model and evaluate it is not usually the end of the project. The results have to be delivered or presented to the stakeholders. So, that's what this phase is about.
 
 * **Step 10: Deploying the Machine Learning Model to Production: a telegram bot**
 
@@ -562,7 +569,7 @@ Thus, the features manually selected are in the followgin final list:
 This phase is about learning the data behavior to be able make generalizations in the future.
 It comprises two steps: ML modeling and the parameters tuning.
 
-### Step 7: Machine Learning Modeling <p id="#s7"></p>
+### Step 7: Machine Learning Modeling <p id="s7"></p>
 This step aims to choose the best Machine Learning model. So first we performed 5 models (one average model, two linear and two tree-based models, as explained in the following) and analyzed them its single performance (a 1 fold analysis). However, to better compare them, we created a Cross Validation function for Time Series (available in the section 0.1 in the [Jupyter Notebook](https://github.com/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb)) and consider the data variation across many time periods.
 
 The models used was:
@@ -602,7 +609,7 @@ The results is shown above.
 **Model Selection Conclusions:**
 _Since XGBooster is the second best model (in terms of errors) and it took less time to run, we decided to finish this cycle using it. In the second CRISP cycle we can use another model and improve the model's performance._
 
-### Step 8: Hyperparameter Fine Tuning <p id="#s8"></p>
+### Step 8: Hyperparameter Fine Tuning <p id="s8"></p>
 Here we wanted to find the best set of parameters that maximizes the algorithm learning. We made it by applying the Random Search method. The reason we chose it is because it chooses randomly the parameters and then is more fast. The best parameters was as follows:
 
 `param_tuned = {
@@ -628,7 +635,7 @@ MAPE improved by 4%, from 14% to 10%.
 ## Phase 5:  Evaluation <p id="p5"></p>
 Here we evaluated the model results with some appropriate metrics. Besides that, we translated that metrics to the business field.
 
-### Step 9: Translating and Interpreting the the Model Error <p id="#s9"></p>
+### Step 9: Translating and Interpreting the the Model Error <p id="s9"></p>
 This step is about looking at the error and translating it to a business language.
 "Whats the impact to the business? the model is usefull or I still have to improve it more?". These are examples of the questions we wanted to answer in this phase.
 
@@ -692,9 +699,47 @@ The last task in this step is to check the fit of the residuals to the normal di
 ---
 ## Phase 6:  Deployment <p id="p6"></p>
 
-_to do..._
+The model creation and evalutation is not usually the end of the project. The results have to be delivered or presented to the stakeholders. So, that's what this phase is about.
+
+### Step 10. Deploying Machine Learning Model to Production: a telegram bot <p id="s10"></p>
+
+We decided to present the model on the stakeholder's smartphone. To do that, we deployed the model in a cloud server and we created a Telegram bot to present the results.
+
+We saved the model, the scalings, and the transformations in Heroku, a platform "that enables developers to build, run, and operate applications entirely in the cloud" ([see website](https://github.com/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb) )
+
+After test locally the application and requests, the bot was created. The production structure is as follows
 
 ![](img/prodArch.PNG)
 
+How it works:
+1. the user texts the store number to the Telegram Bot; 
+2. the Rossmann API (`rossmann-bot.py`) receives the request and retrieve the data to that store from the test dataset;
+3. the Rossmann API send the data to Handler API (`handler.py`); 
+4. the Handler API gets the data preparation to shape the raw data and generate predictions using the model (`model_rossman.pkl`);
+5. the Handler returns the prediction to Rossmann API; and,
+6. the Rossmann API returns the sales prediction to the user on Telegram.
 
-### Step 10. Deploying Machine Learning Model to Production: a telegram bot
+The following gif shows the bot receiving requests and sending back the predictions.
+
+<p align="center"><img width="40%" alt="drawing" src="img/RossmannKaBot.gif"></p>
+
+#### Bot Improvements in the next CRISP-DM cycle
+Our team will decide the delivering method in the next cycle, maybe we could use another one. However, there are some additional information that could be added to the bot, like:
+- a Welcome message;
+- the best and the worst scenarios for the stores;
+- the total prediction (also the total best and worst scenarios);
+- chart presentation;
+- request to more than on store;
+- display a 'wait' message while the request is made.
+
+[back to contents](#contents)
+
+---
+## Conclusion  <p id="conclusion"></p>
+In this project we built and end-to-end sales prediction project going from the initial business understanding to the product deployment to the stakeholder in a bot in Telegram using the CRISP-DM methodology cycles. Besides the business knowledge gained in the Exploratory Data Analysis, we built a model to properly predict the ahead six weeks sales to Rossmann Stores using XGBoost algorithm.
+
+After two months and one day (including this ReadMe creation), I finished the first cycle of this project and I highlight two main lessons I learned:
+1. The construction of an end-to-end Data Science solution is challenging, both in terms of business understanding and Machine Learning techniques;
+2. We need more than Python and Statistics to really create a business value with Data Science: we need to know how to solve a business problem, understanding its demand, to predict the challenges we'll face during the journey and mitigate them and to develop a suitable solution to a better use by the stakeholders.
+
+"_Do… or do not. There is no try._" Master Yoda
