@@ -6,7 +6,7 @@ _This project is a sales prediction using data from Rossmann, a Germany drug sto
 
 Here we have an end-to-end solution development, starting with the business demand understanding, then going through visualizations, data preparation, modeling, and ending with the deployment of the model using Heroku cloud service and a bot on Telegram to present the results to the stakeholders.
 
-If there is any problem with the opening of the _jupyter notebook_ here on Github, please check it on [_this link_](https://nbviewer.jupyter.org/github/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb)
+_Note: If there is any problem with the opening of the jupyter notebook here on Github, please check it on [this link_](https://nbviewer.jupyter.org/github/KattsonBastos/rossmann_sales_prediction/blob/main/notebooks/m10_v01_store_sales_prediction.ipynb)
 
 ### Special Mention
 This projects comes from [Meigarom Lopes](https://github.com/Meigarom)'s course [_Data Science em Produção_](https://sejaumdatascientist.com/como-ser-um-data-scientist/). The course goes from business understanding to the product deployment. It basically addresses the ten steps presented bellow on this ReadMe with an extreme focus on the business contex and and on the problem solving for a business value creation.
