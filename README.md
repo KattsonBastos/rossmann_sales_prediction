@@ -1,4 +1,4 @@
-# ROSSMANN Sales Forecasting: An End-to-End Data Science Project Using Machine Learning for Predictions
+# ROSSMANN Sales Forecasting: An End-to-End Data Science Project Using Machine Learning for Sales Prediction
 
 <img src="https://www.rossmann.de/dam/jcr:f83a6bfd-e46c-4063-844e-59ffa529ed80/Buehne_Startseite_Ueber_uns.2017-01-11-08-36-49.jpg" alt="drawing" width="100%"/>
 
